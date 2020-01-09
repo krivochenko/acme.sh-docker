@@ -47,7 +47,7 @@ Don't forget to define your domain for which you issue certs and your e-mail for
 
 After issuing certs you have to install it:
 ```
-docker exec -it acme.sh acme.sh --install-cert -d example.com --cert-file /certs/example.com.crt --key-file /certs/example.com.key --reloadcmd "docker exec nginx-gen kill -SIGHUP 1"
+docker exec -it acme.sh acme.sh --install-cert -d example.com --cert-file /certs/example.com.chain.pem --key-file /certs/example.com.key --fullchain-file /certs/example.com.crt --reloadcmd "docker exec nginx-gen kill -SIGHUP 1"
 ```
 
 This command copy certs in corresponding place and force docker-gen container to regenerate config and restart proxy.
