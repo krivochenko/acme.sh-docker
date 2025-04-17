@@ -13,7 +13,6 @@ services:
     volumes:
       - ./conf.d:/etc/nginx/conf.d
       - ./certs:/etc/nginx/certs
-
   nginx-gen:
     image: jwilder/docker-gen
     command: -notify-sighup nginx -watch /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
@@ -24,7 +23,6 @@ services:
       - ./certs:/etc/nginx/certs
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
-  
   acme:
     image: krivochenko/acme.sh-docker
     container_name: acme.sh
